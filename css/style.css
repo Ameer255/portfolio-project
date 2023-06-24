@@ -29,7 +29,6 @@ body {
   background: #fff;
   transition: .5s linear all;
   z-index: 2;
-  display: none;
 }
 
 .nav-sm.visible,
