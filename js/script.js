@@ -6,12 +6,15 @@ let closeBtn = document.querySelector('.close-btn');
 let members = document.querySelector('#members');
 let teams = document.querySelector('#teams');
 let elements = document.querySelectorAll('.animating');
+let shown = false;
 
 
 // Toggling navbar on close btn in overlay click
 closeBtn.addEventListener('click', ()=>{
     document.querySelector('.nav-sm').classList.toggle('visible');
     document.querySelector('.overlay').classList.toggle('visible');
+    document.querySelector('.nav-sm').style.display = 'none';
+    shown = false;
     toggleBtn.classList.toggle('nav-toggle');
 })
 
@@ -19,6 +22,12 @@ closeBtn.addEventListener('click', ()=>{
 // Toggling navbar on toggle btn click
 toggleBtn.addEventListener('click', ()=>{
     document.querySelector('.nav-sm').classList.toggle('visible');
+    if(shown){
+    document.querySelector('.nav-sm').style.display = 'none';
+    }else{
+        document.querySelector('.nav-sm').style.display = 'block';
+        shown = true;
+}
     document.querySelector('.overlay').classList.toggle('visible');
     toggleBtn.classList.toggle('nav-toggle');
 })
