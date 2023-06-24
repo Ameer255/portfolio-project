@@ -14,6 +14,7 @@ closeBtn.addEventListener('click', ()=>{
     document.querySelector('.nav-sm').classList.toggle('visible');
     document.querySelector('.overlay').classList.toggle('visible');
     document.querySelector('.nav-sm').style.display = 'none';
+    document.querySelector('.overlay').style.display = 'none';
     shown = false;
     toggleBtn.classList.toggle('nav-toggle');
 })
@@ -23,9 +24,11 @@ closeBtn.addEventListener('click', ()=>{
 toggleBtn.addEventListener('click', ()=>{
     document.querySelector('.nav-sm').classList.toggle('visible');
     if(shown){
-    document.querySelector('.nav-sm').style.display = 'none';
+        document.querySelector('.nav-sm').style.display = 'none';
+        document.querySelector('.overlay').style.display = 'none';
     }else{
         document.querySelector('.nav-sm').style.display = 'block';
+        document.querySelector('.overlay').style.display = 'block';
         shown = true;
 }
     document.querySelector('.overlay').classList.toggle('visible');
