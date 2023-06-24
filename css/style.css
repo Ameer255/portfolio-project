@@ -17,14 +17,14 @@ body {
   top: 0;
   right: -100%;
   background-color: black;
-  opacity: 0;
+  opacity: 1;
   transition: .5s linear opacity;
   z-index: 1;
 }
 
 .nav-sm {
   top: 0;
-  left: 180%;
+  right: -80%;
   min-height: 100vh;
   background: #fff;
   transition: .5s linear all;
@@ -34,7 +34,7 @@ body {
 
 .nav-sm.visible,
 .overlay.visible {
-  left: 50%;
+  right: 0;
 }
 
 .overlay.visible {
