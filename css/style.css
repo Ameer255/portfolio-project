@@ -24,7 +24,7 @@ body {
 
 .nav-sm {
   top: 0;
-  right: -80%;
+  left: 180%;
   min-height: 100vh;
   background: #fff;
   transition: .5s linear all;
@@ -34,7 +34,7 @@ body {
 
 .nav-sm.visible,
 .overlay.visible {
-  right: 0;
+  left: 50%;
 }
 
 .overlay.visible {
