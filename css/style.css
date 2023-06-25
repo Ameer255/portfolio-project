@@ -7,9 +7,10 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   font-family: 'Nunito Sans', sans-serif !important;
 }
+
 
 .overlay {
   width: 100%;
@@ -18,9 +19,9 @@ body {
   right: -100%;
   background-color: black;
   opacity: 0;
+  display: none;
   transition: .5s linear opacity;
   z-index: 1;
-  display: none;
 }
 
 .nav-sm {
@@ -29,8 +30,8 @@ body {
   min-height: 100vh;
   background: #fff;
   transition: .5s linear all;
-  z-index: 2;
   display: none;
+  z-index: 2;
 }
 
 .nav-sm.visible,

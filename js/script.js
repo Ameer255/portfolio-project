@@ -6,38 +6,44 @@ let closeBtn = document.querySelector('.close-btn');
 let members = document.querySelector('#members');
 let teams = document.querySelector('#teams');
 let elements = document.querySelectorAll('.animating');
+let navSm = document.querySelector('.nav-sm');
+let overlay = document.querySelector('.overlay');
 let shown = false;
 
 
-// Toggling navbar on close btn in overlay click
-closeBtn.addEventListener('click', ()=>{
-    document.querySelector('.nav-sm').classList.toggle('visible');
-    document.querySelector('.overlay').classList.toggle('visible');
-    document.querySelector('.nav-sm').style.display = 'none';
-    document.querySelector('.overlay').style.display = 'none';
-    shown = false;
+// function to hide/show nav sm
+function navToggle() {
+    if (shown) {
+        navSm.classList.remove('visible');
+        overlay.classList.remove('visible');
+        setTimeout(() => {
+            navSm.style.display = 'none';
+         overlay.style.display = 'none';
+        }, 200)
+        shown = false;
+    }
+    else {
+        navSm.style.display = 'block';
+        overlay.style.display = 'block';
+        setTimeout(() => {
+            navSm.classList.add('visible');
+            overlay.classList.add('visible');
+        }, 200)
+        shown = true;
+    }
     toggleBtn.classList.toggle('nav-toggle');
-})
+}
+
+// Toggling navbar on close btn in overlay click
+closeBtn.addEventListener('click', navToggle);
 
 
 // Toggling navbar on toggle btn click
-toggleBtn.addEventListener('click', ()=>{
-    document.querySelector('.nav-sm').classList.toggle('visible');
-    if(shown){
-        document.querySelector('.nav-sm').style.display = 'none';
-        document.querySelector('.overlay').style.display = 'none';
-    }else{
-        document.querySelector('.nav-sm').style.display = 'block';
-        document.querySelector('.overlay').style.display = 'block';
-        shown = true;
-}
-    document.querySelector('.overlay').classList.toggle('visible');
-    toggleBtn.classList.toggle('nav-toggle');
-})
+toggleBtn.addEventListener('click', navToggle);
 
 // showing submenu on dropdown click
-for(let i = 0; i<dropdown.length; i++){
-    dropdown[i].addEventListener('click', (e)=>{
+for (let i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener('click', (e) => {
         submenu[e.target.dataset.menu].classList.toggle('menu-visible');
 
     })
@@ -51,15 +57,15 @@ let teamCount = 0;
 
 // function to update values in teams and members
 
-function updateValues(){
+function updateValues() {
 
-    if(memberCount <60){
-    members.innerHTML = memberCount;
-    memberCount++;
+    if (memberCount < 60) {
+        members.innerHTML = memberCount;
+        memberCount++;
     }
-    if(teamCount<15){
-    teams.innerHTML = teamCount;
-    teamCount++;
+    if (teamCount < 15) {
+        teams.innerHTML = teamCount;
+        teamCount++;
     }
 }
 
@@ -87,9 +93,9 @@ function anim() {
 
 
     let id;
-    if(isInViewPort(members)){
-     id = setInterval(updateValues, 300); 
-    } else{
+    if (isInViewPort(members)) {
+        id = setInterval(updateValues, 300);
+    } else {
         clearInterval(id);
     }
 }
