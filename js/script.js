@@ -8,6 +8,8 @@ let teams = document.querySelector('#teams');
 let elements = document.querySelectorAll('.animating');
 let navSm = document.querySelector('.nav-sm');
 let overlay = document.querySelector('.overlay');
+let videoContainer = document.querySelector('.yt-video-container');
+let videoCloseBtn = document.querySelector('.video-close-btn');
 let shown = false;
 
 
@@ -18,7 +20,7 @@ function navToggle() {
         overlay.classList.remove('visible');
         setTimeout(() => {
             navSm.style.display = 'none';
-         overlay.style.display = 'none';
+            overlay.style.display = 'none';
         }, 200)
         shown = false;
     }
@@ -69,6 +71,16 @@ function updateValues() {
     }
 }
 
+// if elements are visible on viewport, start updating values
+function anim() {
+    let id;
+    if (isInViewPort(members)) {
+        id = setInterval(updateValues, 150);
+    } else {
+        clearInterval(id);
+    }
+}
+
 
 // function to check if specific element is visible on viewport
 function isInViewPort(el) {
@@ -81,27 +93,49 @@ function isInViewPort(el) {
 }
 
 
-// function to add styling to elememnts that are visible
-function anim() {
-    elements.forEach((el) => {
-        if (isInViewPort(el)) {
-            el.style.opacity = '1';
-            el.style.marginTop = '0';
-            el.style.animation = 'show .6s ease-in';
-        }
-    })
+// initializing aniamtions 
+
+AOS.init({
+    duration: 1200,
+    once: true
+})
 
 
-    let id;
-    if (isInViewPort(members)) {
-        id = setInterval(updateValues, 300);
-    } else {
-        clearInterval(id);
-    }
-}
 
-anim();
 // triggering anim function when user scrolls
 window.addEventListener('scroll', anim)
 
 
+
+// automatically activating service items
+let counter = 0;
+let digitalServices = document.querySelectorAll('.digital-services2>div');
+
+function activate() {
+
+    for (let i = 0; i < digitalServices.length; i++) {
+        digitalServices[i].classList.remove('active')
+    }
+    if (counter < 4 && counter !== 0) {
+        digitalServices[counter].classList.add('active');
+        counter++;
+        console.log('value of counter is ', counter)
+    } else {
+        counter = 0;
+        digitalServices[counter].classList.add('active');
+        counter++;
+    }
+}
+
+activate();
+
+setInterval(activate, 5000);
+
+// toggling youtube video container
+document.querySelector('.dashboard-img').addEventListener('click',()=>{
+    videoContainer.classList.add('visible');
+});
+
+videoCloseBtn.addEventListener('click', ()=>{
+    videoContainer.classList.remove('visible');
+})

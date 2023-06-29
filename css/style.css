@@ -84,9 +84,10 @@ body {
   align-items: center;
 }
 
-.nav-item{
+.nav-item {
   margin: 0 10px;
 }
+
 #nav-toggle>span {
   width: 100%;
   height: 2px;
@@ -136,7 +137,7 @@ body {
 }
 
 
-.hero h1{
+.hero h1 {
   font-weight: 700;
   font-size: 70px;
   margin-bottom: 22px;
@@ -164,9 +165,30 @@ body {
 
 }
 
-.dashboard-overlay {
+.yt-video-container{
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: #222222;
+  color: white;
+  transition: .3s ease opacity;
+  opacity: 0;
+ 
+}
+
+.yt-video-container.visible{
+  opacity: .95;
+  z-index: 3;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.dashboard-overlay {
+  width: 100%;
+  height: 110%;
   background-color: #222222;
   opacity: 0;
   transition: .3s ease opacity;
@@ -178,13 +200,12 @@ body {
 }
 
 .dashboard-img img {
-  width: 95%;
-  height: 95%;
+  width: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .dashboard-img2 {
-  min-height: 450px;
   width: 98%;
 }
 
@@ -193,7 +214,6 @@ body {
 .carousel-item,
 .carousel-item img {
   width: 100% !important;
-  height: 100%;
 }
 
 .play-icon {
@@ -238,13 +258,28 @@ body {
   margin-top: -8px !important;
 }
 
-.digital-services>div {
+.digital-services2>div {
   cursor: pointer;
   transition: .3s linear all;
 }
 
-.digital-services>div:hover {
+
+
+.digital-services2>div:hover,
+.digital-services2>div.active {
   background: #fff;
+  border-right: 4px solid #407BFF;
+}
+
+.img-count {
+  background-color: #407BFF;
+  color: white;
+  z-index: 3;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
 }
 
 .products2 .product-icon {
@@ -401,22 +436,22 @@ body {
 
 @keyframes show {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   20% {
-      opacity: 0.2;
+    opacity: 0.2;
   }
 
   70% {
-      opacity: 0.3;
+    opacity: 0.3;
   }
 
   90% {
-      opacity: 50%;
+    opacity: 50%;
   }
 
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
