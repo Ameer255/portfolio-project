@@ -3,14 +3,13 @@
 
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 body {
   overflow-x: hidden !important;
   font-family: 'Nunito Sans', sans-serif !important;
 }
-
 
 .overlay {
   width: 100%;
@@ -159,7 +158,6 @@ body {
 
 .dashboard-img {
   width: 90%;
-  height: 400px;
   box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 
