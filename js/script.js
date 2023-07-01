@@ -5,7 +5,6 @@ let toggleBtn = document.querySelector('#nav-toggle');
 let closeBtn = document.querySelector('.close-btn');
 let members = document.querySelector('#members');
 let teams = document.querySelector('#teams');
-let elements = document.querySelectorAll('.animating');
 let navSm = document.querySelector('.nav-sm');
 let overlay = document.querySelector('.overlay');
 let videoContainer = document.querySelector('.yt-video-container');
