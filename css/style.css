@@ -14,9 +14,15 @@ span, div{
   overflow: unset !important;
 }
 
+
 body {
   overflow-x: hidden !important;
   font-family: 'Nunito Sans', sans-serif !important;
+}
+
+.dots{
+  top: 130px;
+  right: -110px;
 }
 
 .overlay {
