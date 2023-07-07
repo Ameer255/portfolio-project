@@ -6,11 +6,19 @@
   box-sizing: border-box !important;
 }
 
-span, div{
+span,
+div {
   overflow: hidden !important;
 }
 
-.nav-sm div, .nav-sm span{
+.nav-sm div,
+.nav-sm span,
+.pricing-container span,
+.pricing-container div,
+.about-container div,
+.about-container span,
+.news-container div,
+.news-container span, nav div, nav span {
   overflow: unset !important;
 }
 
@@ -20,7 +28,7 @@ body {
   font-family: 'Nunito Sans', sans-serif !important;
 }
 
-.dots{
+.dots {
   top: 180px;
   right: 0px;
 }
@@ -28,13 +36,29 @@ body {
 .overlay {
   width: 100%;
   min-height: 100vh;
-  top: 0;
+  top: 30px;
   right: -100%;
   background-color: black;
   opacity: 0;
   display: none;
   transition: .5s linear opacity;
   z-index: 1;
+}
+
+.nav-item ul{
+  list-style: none;
+  margin: 0;
+  position: absolute;
+  box-shadow: #d8d8d8 1px 1px 8px 4px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  display: none;
+  background: #fff;
+  z-index: 111;
+}
+
+.nav-item ul>li:hover{
+  background-color: #f5f5f5;
 }
 
 .nav-sm {
@@ -177,7 +201,7 @@ body {
 
 }
 
-.yt-video-container{
+.yt-video-container {
   top: 0;
   left: 0;
   width: 100%;
@@ -186,15 +210,15 @@ body {
   color: white;
   transition: .3s ease opacity;
   opacity: 0;
- 
+
 }
 
-.yt-video-container.visible{
+.yt-video-container.visible {
   opacity: .95;
   z-index: 3;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
@@ -434,3 +458,17 @@ body {
 }
 
 
+
+.yt-video-container iframe{
+  width: 620px;
+  height: 400px;
+}
+
+
+@media screen and (max-width:720px) {
+  .yt-video-container iframe{
+    width: 80%;
+    height: 350px;
+  }
+  
+}

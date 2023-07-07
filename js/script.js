@@ -45,10 +45,21 @@ toggleBtn.addEventListener('click', navToggle);
 // showing submenu on dropdown click
 for (let i = 0; i < dropdown.length; i++) {
     dropdown[i].addEventListener('click', (e) => {
+        console.log(e.target)
         submenu[e.target.dataset.menu].classList.toggle('menu-visible');
 
     })
 }
+
+
+document.querySelector('#navbarDropdown').addEventListener('mouseenter', function () {
+     document.querySelector('.nav-item ul').style.display= 'block';
+    
+    })
+document.querySelector('.nav-item ul').addEventListener('mouseleave', function () {
+     document.querySelector('.nav-item ul').style.display= 'none';
+    
+    })
 
 
 
@@ -131,10 +142,10 @@ activate();
 setInterval(activate, 5000);
 
 // toggling youtube video container
-document.querySelector('.dashboard-img').addEventListener('click',()=>{
+document.querySelector('.dashboard-img').addEventListener('click', () => {
     videoContainer.classList.add('visible');
 });
 
-videoCloseBtn.addEventListener('click', ()=>{
+videoCloseBtn.addEventListener('click', () => {
     videoContainer.classList.remove('visible');
 })
