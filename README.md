@@ -8,4 +8,3 @@ https://ameer255.github.io/portfolio-project
 3. JavaScript - For Interactivity and DOM manipulation
 4. Bootstrap - For responsiveness and improved UI
 5. AOS Animations - For adding Animations to HTML elements
-6. 
